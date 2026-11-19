@@ -1,0 +1,10 @@
+{
+    "type": "gezipai",
+    "target": "esp32s3",
+    "builds": [
+        {
+            "name": "gezipai",
+            "sdkconfig_append": []
+        }
+    ]
+}
