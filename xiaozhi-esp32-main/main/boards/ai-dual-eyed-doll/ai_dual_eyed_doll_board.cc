@@ -17,9 +17,9 @@
 #include <algorithm>
 #include <string>
 
-#define TAG "GezipaiBoard"
+#define TAG "AiDualEyedDollBoard"
 
-class GezipaiBoard : public WifiBoard {
+class AiDualEyedDollBoard : public WifiBoard {
 private:
     i2c_master_bus_handle_t codec_i2c_bus_ = nullptr;
     Button boot_button_;
@@ -28,6 +28,7 @@ private:
     LcdDisplay* display_ = nullptr;
 
     void InitializeCodecI2c() {
+        // 初始化音频编解码器共用的 I2C 主总线。
         i2c_master_bus_config_t bus_config = {
             .i2c_port = I2C_NUM_0,
             .sda_io_num = AUDIO_CODEC_I2C_SDA_PIN,
@@ -44,6 +45,7 @@ private:
     }
 
     void InitializeSpi() {
+        // 屏幕仅使用 SPI 写入，因此不连接 MISO 引脚。
         spi_bus_config_t bus_config = {};
         bus_config.mosi_io_num = DISPLAY_SPI_MOSI_PIN;
         bus_config.miso_io_num = GPIO_NUM_NC;
@@ -55,6 +57,7 @@ private:
     }
 
     void InitializeDisplay() {
+        // 初始化 ST7789 屏幕并应用板卡的方向与颜色配置。
         esp_lcd_panel_io_handle_t panel_io = nullptr;
         esp_lcd_panel_handle_t panel = nullptr;
 
@@ -87,6 +90,7 @@ private:
     }
 
     void InitializeButtons() {
+        // 开机键按下时开始聆听，短按可在启动阶段进入配网。
         boot_button_.OnClick([this]() {
             if (Application::GetInstance().GetDeviceState() == kDeviceStateStarting) {
                 EnterWifiConfigMode();
@@ -123,11 +127,11 @@ private:
     }
 
 public:
-    GezipaiBoard()
+    AiDualEyedDollBoard()
         : boot_button_(BOOT_BUTTON_GPIO),
           volume_up_button_(VOLUME_UP_BUTTON_GPIO),
           volume_down_button_(VOLUME_DOWN_BUTTON_GPIO) {
-        ESP_LOGI(TAG, "Initializing Gezipai ESP32-S3-AI-2 board");
+        ESP_LOGI(TAG, "正在初始化 AI 双眼娃娃 ESP32-S3-AI-2 板卡");
         InitializeCodecI2c();
         InitializeSpi();
         InitializeDisplay();
@@ -159,4 +163,4 @@ public:
     }
 };
 
-DECLARE_BOARD(GezipaiBoard);
+DECLARE_BOARD(AiDualEyedDollBoard);

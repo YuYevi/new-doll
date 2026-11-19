@@ -1,9 +1,9 @@
 {
-    "type": "gezipai",
+    "type": "ai-dual-eyed-doll",
     "target": "esp32s3",
     "builds": [
         {
-            "name": "gezipai",
+            "name": "ai-dual-eyed-doll",
             "sdkconfig_append": []
         }
     ]
