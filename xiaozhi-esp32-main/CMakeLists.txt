@@ -2,6 +2,9 @@
 # CMakeLists in this exact order for cmake to work correctly
 cmake_minimum_required(VERSION 3.16)
 
+# 强制 Ninja 用响应文件，绕过 Windows 命令行长度限制
+set(CMAKE_NINJA_FORCE_RESPONSE_FILE ON)
+
 # Add this line to disable the specific warning
 add_compile_options(-Wno-missing-field-initializers)
 
