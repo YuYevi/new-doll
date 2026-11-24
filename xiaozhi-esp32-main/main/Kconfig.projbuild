@@ -35,7 +35,7 @@ config CUSTOM_ASSETS_FILE
 
 choice
     prompt "Default Language"
-    default LANGUAGE_EN_US
+    default LANGUAGE_ZH_CN
     help
         Select device display language
 
@@ -129,7 +129,7 @@ choice BOARD_TYPE
     default BOARD_TYPE_XMINI_C3_V3 if IDF_TARGET_ESP32C3
     default BOARD_TYPE_ESP_SENSAIRSHUTTLE if IDF_TARGET_ESP32C5
     default BOARD_TYPE_WAVESHARE_ESP32_C6_TOUCH_AMOLED_2_06 if IDF_TARGET_ESP32C6
-    default BOARD_TYPE_BREAD_COMPACT_WIFI if IDF_TARGET_ESP32S3
+    default BOARD_TYPE_AI_DUAL_EYED_DOLL if IDF_TARGET_ESP32S3
     default BOARD_TYPE_ESP32_P4_FUNCTION_EV_BOARD if IDF_TARGET_ESP32P4
     default BOARD_TYPE_ESP32_S31_FUNCTION_COREBOARD_1 if IDF_TARGET_ESP32S31
     help
@@ -137,7 +137,7 @@ choice BOARD_TYPE
         The OTA board type and firmware variant name are configured separately.
 
     config BOARD_TYPE_AI_DUAL_EYED_DOLL
-        bool "AI ESP32-S3-AI-2 (双眼娃娃)"
+        bool "AI Dual-Eyed Doll (心域回响)"
         depends on IDF_TARGET_ESP32S3
     config BOARD_TYPE_ATK_DNESP32S3
         bool "Alientek ATK-DNESP32S3 Development Board (正点原子)"
@@ -989,7 +989,7 @@ config USE_MULTILINE_CHAT_MESSAGE
 
 choice WAKE_WORD_TYPE
     prompt "Wake Word Implementation Type"
-    default WAKE_WORD_DISABLED
+    default USE_CUSTOM_WAKE_WORD
     help
         Choose the type of wake word implementation to use.
         scripts/build.py selects a compatible implementation and model automatically.
@@ -1022,14 +1022,14 @@ endchoice
 
 config CUSTOM_WAKE_WORD
     string "Custom Wake Word"
-    default "xiao tu dou"
+    default "xiao mian hua"
     depends on USE_CUSTOM_WAKE_WORD
     help
         Custom Wake Word, use pinyin for Chinese, separated by spaces
 
 config CUSTOM_WAKE_WORD_DISPLAY
     string "Custom Wake Word Display"
-    default "小土豆"
+    default "小棉花"
     depends on USE_CUSTOM_WAKE_WORD
     help
         Greeting sent to the server after wake word detection

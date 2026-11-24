@@ -131,7 +131,7 @@ public:
         : boot_button_(BOOT_BUTTON_GPIO),
           volume_up_button_(VOLUME_UP_BUTTON_GPIO),
           volume_down_button_(VOLUME_DOWN_BUTTON_GPIO) {
-        ESP_LOGI(TAG, "正在初始化 AI 双眼娃娃 ESP32-S3-AI-2 板卡");
+        ESP_LOGI(TAG, "正在初始化 AI Dual-Eyed Doll (心域回响) 板卡");
         InitializeCodecI2c();
         InitializeSpi();
         InitializeDisplay();

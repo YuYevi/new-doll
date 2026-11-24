@@ -1,6 +1,6 @@
-# 双眼娃娃 ESP32-S3-AI-2
+# AI Dual-Eyed Doll (心域回响)
 
-本目录提供 ESP32-S3-AI-2 模组及其参考底板的板级支持，适用于双眼娃娃板卡。
+本目录提供 AI Dual-Eyed Doll (心域回响) 的板级支持。
 
 ## 硬件接口
 
@@ -19,4 +19,4 @@
 python scripts/build.py ai-dual-eyed-doll --name ai-dual-eyed-doll
 ```
 
-手动配置时，在 `idf.py menuconfig` 的目标板卡菜单中选择“AI ESP32-S3-AI-2（双眼娃娃）”。
+手动配置时，在 `idf.py menuconfig` 的目标板卡菜单中选择“AI Dual-Eyed Doll (心域回响)”。

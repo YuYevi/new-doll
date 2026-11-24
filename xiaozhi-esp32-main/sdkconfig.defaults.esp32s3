@@ -39,3 +39,12 @@ CONFIG_LV_USE_SNAPSHOT=y
 CONFIG_LV_USE_BUILTIN_MALLOC=y
 # CONFIG_LV_USE_CLIB_MALLOC is not set
 CONFIG_LV_MEM_SIZE_KILOBYTES=1024
+
+# AI Dual-Eyed Doll (心域回响) 板卡
+CONFIG_BOARD_TYPE_AI_DUAL_EYED_DOLL=y
+
+# 自定义唤醒词「小棉花」：需要带 FST 语法的 multinet 模型。
+# 只有 MULTINET6/7 才会打包 esp_mn_commands_add() 所需的 fst 语法文件。
+CONFIG_USE_CUSTOM_WAKE_WORD=y
+CONFIG_SR_MN_CN_MULTINET7_QUANT=y
+# CONFIG_SR_MN_CN_NONE is not set
